@@ -1,0 +1,23 @@
+
+import {createRequire as ___nfyCreateRequire} from "module";
+import {fileURLToPath as ___nfyFileURLToPath} from "url";
+import {dirname as ___nfyPathDirname} from "path";
+let __filename=___nfyFileURLToPath(import.meta.url);
+let __dirname=___nfyPathDirname(___nfyFileURLToPath(import.meta.url));
+let require=___nfyCreateRequire(import.meta.url);
+
+
+// netlify/functions/getLocation.mjs
+var getLocation_default = async (req) => {
+  const params = new URL(req.url).searchParams;
+  const latitude = parseFloat(params.get("lat"));
+  const longitude = parseFloat(params.get("lon"));
+  const username = "chrj23020";
+  const response = await fetch(`http://api.geonames.org/findNearbyPlaceNameJSON?lat=${latitude}&lng=${longitude}&username=${username}`);
+  const data = await response.json();
+  return new Response(JSON.stringify({ location: data.geonames[0].adminName1 }));
+};
+export {
+  getLocation_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsibmV0bGlmeS9mdW5jdGlvbnMvZ2V0TG9jYXRpb24ubWpzIl0sCiAgInNvdXJjZXNDb250ZW50IjogWyJleHBvcnQgZGVmYXVsdCBhc3luYyhyZXEpPT57XHJcbiAgICBjb25zdCBwYXJhbXMgPSBuZXcgVVJMKHJlcS51cmwpLnNlYXJjaFBhcmFtcztcclxuICAgIGNvbnN0IGxhdGl0dWRlID0gcGFyc2VGbG9hdChwYXJhbXMuZ2V0KCdsYXQnKSk7XHJcbiAgICBjb25zdCBsb25naXR1ZGUgPSBwYXJzZUZsb2F0KHBhcmFtcy5nZXQoJ2xvbicpKTtcclxuICAgIGNvbnN0IHVzZXJuYW1lID0gJ2NocmoyMzAyMCc7XHJcbiAgICBcclxuICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goYGh0dHA6Ly9hcGkuZ2VvbmFtZXMub3JnL2ZpbmROZWFyYnlQbGFjZU5hbWVKU09OP2xhdD0ke2xhdGl0dWRlfSZsbmc9JHtsb25naXR1ZGV9JnVzZXJuYW1lPSR7dXNlcm5hbWV9YCk7XHJcbiAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuanNvbigpO1xyXG5cclxuICAgIHJldHVybiBuZXcgUmVzcG9uc2UoSlNPTi5zdHJpbmdpZnkoe2xvY2F0aW9uOiBkYXRhLmdlb25hbWVzWzBdLmFkbWluTmFtZTF9KSk7XHJcbn0iXSwKICAibWFwcGluZ3MiOiAiOzs7Ozs7Ozs7O0FBQUEsSUFBTyxzQkFBUSxPQUFNLFFBQU07QUFDdkIsUUFBTSxTQUFTLElBQUksSUFBSSxJQUFJLEdBQUcsRUFBRTtBQUNoQyxRQUFNLFdBQVcsV0FBVyxPQUFPLElBQUksS0FBSyxDQUFDO0FBQzdDLFFBQU0sWUFBWSxXQUFXLE9BQU8sSUFBSSxLQUFLLENBQUM7QUFDOUMsUUFBTSxXQUFXO0FBRWpCLFFBQU0sV0FBVyxNQUFNLE1BQU0sdURBQXVELFFBQVEsUUFBUSxTQUFTLGFBQWEsUUFBUSxFQUFFO0FBQ3BJLFFBQU0sT0FBTyxNQUFNLFNBQVMsS0FBSztBQUVqQyxTQUFPLElBQUksU0FBUyxLQUFLLFVBQVUsRUFBQyxVQUFVLEtBQUssU0FBUyxDQUFDLEVBQUUsV0FBVSxDQUFDLENBQUM7QUFDL0U7IiwKICAibmFtZXMiOiBbXQp9Cg==
